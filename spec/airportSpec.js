@@ -52,8 +52,7 @@ describe('Airport', function() {
 		it('should not exceed its capacity', function(){
 			fillUp(airport);
 			airport.land(new Plane);
-			expect(airport.planes.length).toEqual(40);
-		});
+			expect(airport.planes.length).toEqual(40);		});
 
 		fillUp = function(aiport) {
 			for(var i=0; i < 40; i++){
