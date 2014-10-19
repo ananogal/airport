@@ -3,13 +3,19 @@ function Airport(){
 	this.controlTower = new ControlTower(this);
 };
 
-function Plane(){
+function Plane(){};
+
+function Weather(){
+
 };
 
 Airport.prototype.land = function(plane) {
-	if(! this.isFull())
+	if(this._isNotFull())
+	{
 		this.planes.push(plane);
-	return plane;
+		return plane;
+	}
+	return null;
 };
 
 Airport.prototype.takeoff = function(plane) {
@@ -20,4 +26,9 @@ Airport.prototype.takeoff = function(plane) {
 Airport.prototype.isFull = function() {
 	return this.planes.length === 40
 };
+
+Airport.prototype._isNotFull = function(first_argument) {
+	return !this.isFull();
+};
+
 

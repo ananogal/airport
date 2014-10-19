@@ -20,6 +20,11 @@ describe('Airport', function() {
 			expect(airport.planes).toEqual([plane]);
 		});
 
+		it('knows that a plane can not land', function(){
+			fillUp(airport);
+			expect(airport.land(plane)).toEqual(null);
+		});
+
 		it('can allow a plane to takeoff', function() {
 			airport.land(plane);
 			expect(airport.takeoff(plane)).toEqual(plane)
@@ -52,22 +57,14 @@ describe('Airport', function() {
 		it('should not exceed its capacity', function(){
 			fillUp(airport);
 			airport.land(new Plane);
-			expect(airport.planes.length).toEqual(40);		});
+			expect(airport.planes.length).toEqual(40);		
+		});
 
 		fillUp = function(aiport) {
-			for(var i=0; i < 40; i++){
+			for(var i = 0; i < 40; i++){
 				airport.land(new Plane());
 			}
 		}
-
 	});
-
 });
 
-// it can have planes
-// it can allow a plane to land
-// it can allow a plane to takeoff
-// it has passangers inside
-// it has a capacity
-// it can transfer passengers from Airport to plane
-// it can receive passengers from plane into airport
