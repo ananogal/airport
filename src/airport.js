@@ -5,10 +5,6 @@ function Airport(){
 
 function Plane(){};
 
-function Weather(){
-
-};
-
 Airport.prototype.land = function(plane) {
 	if(this._isNotFull())
 	{
